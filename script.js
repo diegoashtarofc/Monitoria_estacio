@@ -43,15 +43,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     displayFaqs(faqList);
 
-    // Enviar formulário via email
+    // Enviar formulário via EmailJS
     contactForm.addEventListener('submit', function(event) {
         event.preventDefault();
-        const formData = new FormData(contactForm);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
-
-        const mailtoLink = `mailto:202410057389@alunos.estacio.br?subject=Contato do Site&body=Nome: ${name}%0AEmail: ${email}%0AMensagem: ${message}`;
-        window.location.href = mailtoLink;
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', '#contact-form')
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert('Mensagem enviada com sucesso!');
+            }, function(error) {
+                console.error('FAILED...', error);
+                alert('Falha ao enviar a mensagem. Tente novamente.');
+            });
     });
 });

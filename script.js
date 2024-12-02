@@ -24,7 +24,11 @@ document.addEventListener("DOMContentLoaded", function() {
             li.innerHTML = `<strong>${faq.question}</strong><div class="faq-answer">${faq.answer}</div>`;
             li.addEventListener('click', function() {
                 const answer = li.querySelector('.faq-answer');
-                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                } else {
+                    answer.style.display = 'block';
+                }
             });
             faqContainer.appendChild(li);
         });

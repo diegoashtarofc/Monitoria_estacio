@@ -8,6 +8,16 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 header {
@@ -17,6 +27,19 @@ header {
     text-align: center;
     border-radius: 10px;
     margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: slideDown 1s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 nav ul {
@@ -28,6 +51,19 @@ nav ul {
     margin: 20px;
     list-style: none;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: slideUp 1s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 nav ul li {
@@ -39,10 +75,12 @@ nav ul li a {
     color: #fff;
     padding: 0.5em 1em;
     display: inline-block;
+    transition: background 0.3s, transform 0.3s;
 }
 
 nav ul li a:hover {
     background: #575757;
+    transform: scale(1.1);
 }
 
 main {
@@ -52,6 +90,8 @@ main {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 10px;
     backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
 }
 
 section {
@@ -66,6 +106,8 @@ footer {
     border-radius: 10px;
     margin: 20px;
     position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: slideUp 1s ease;
 }
 
 input[type="text"] {
@@ -75,6 +117,12 @@ input[type="text"] {
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+input[type="text"]:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .faq-item {
@@ -83,14 +131,26 @@ input[type="text"] {
     margin-bottom: 10px;
     padding: 1em;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .faq-item:hover {
     background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.02);
 }
 
 .faq-answer {
     display: none;
     padding-top: 0.5em;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

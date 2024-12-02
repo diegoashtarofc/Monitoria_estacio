@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Enviar formulário via EmailJS
     contactForm.addEventListener('submit', function(event) {
         event.preventDefault();
-        emailjs.sendForm("service_luw2u91", "template_gucg9fn", '#contact-form')
+        emailjs.send("service_luw2u91", "template_gucg9fn")
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 alert('Mensagem enviada com sucesso!');

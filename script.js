@@ -25,6 +25,12 @@ document.addEventListener("DOMContentLoaded", function() {
             li.innerHTML = `<strong>${faq.question}</strong><div class="faq-answer">${faq.answer}</div>`;
             li.addEventListener('click', function() {
                 const answer = li.querySelector('.faq-answer');
+                const allAnswers = document.querySelectorAll('.faq-answer');
+                allAnswers.forEach(ans => {
+                    if (ans !== answer) {
+                        ans.style.display = 'none';
+                    }
+                });
                 if (answer.style.display === 'block') {
                     answer.style.display = 'none';
                 } else {
@@ -46,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Enviar formulário via EmailJS
     contactForm.addEventListener('submit', function(event) {
         event.preventDefault();
-        emailjs.send("service_luw2u91", "template_gucg9fn")
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', '#contact-form')
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 alert('Mensagem enviada com sucesso!');

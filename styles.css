@@ -1,113 +1,134 @@
+/* Estilos Globais */
+
 body {
     font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    color: #1d1d1f;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: #f0f0f0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    transition: background 0.3s ease;
 }
 
 header {
     background: #0073e6;
     color: #fff;
-    padding: 1em;
+    padding: 2em;
     text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transition: transform 0.5s ease-in-out;
     border-radius: 10px;
-    margin: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    animation: slideDown 1s ease;
 }
 
-@keyframes slideDown {
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+@keyframes fadeInDown {
     from {
-        transform: translateY(-20px);
         opacity: 0;
+        transform: translateY(-20px);
     }
     to {
-        transform: translateY(0);
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
 nav ul {
-    background: #333;
-    overflow: hidden;
+    background: linear-gradient(to right, #333, #575757);
     color: #fff;
     padding: 0;
     text-align: center;
-    margin: 20px;
     list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    animation: slideUp 1s ease;
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }
 
 nav ul li {
-    display: inline;
+    margin: 0 10px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #fff;
-    padding: 0.5em 1em;
-    display: inline-block;
+    padding: 10px 20px;
+    display: block;
     transition: background 0.3s, transform 0.3s;
 }
 
 nav ul li a:hover {
     background: #575757;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 main {
     flex: 1;
     padding: 2em;
     margin: 20px;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-in-out;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease-in-out;
 }
 
 section {
     margin-bottom: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 footer {
-    background: #333;
+    background: rgba(51, 51, 51, 0.9);
     color: #fff;
     text-align: center;
     padding: 1em 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transition: transform 0.5s ease-in-out;
     border-radius: 10px;
-    margin: 20px;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    animation: slideUp 1s ease;
+}
+
+button {
+    padding: 10px 20px;
+    background: linear-gradient(to right, #0073e6, #005bb5);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background: linear-gradient(to right, #005bb5, #003a75);
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 input[type="text"],
@@ -117,44 +138,29 @@ textarea {
     padding: 0.5em;
     margin: 1em 0;
     box-sizing: border-box;
-    border-radius: 5px;
     border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-button {
-    padding: 0.5em 1em;
-    background: #0073e6;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 10px;
-}
-
-button:hover {
-    background: #005bb5;
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .faq-item {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     margin-bottom: 10px;
     padding: 1em;
     cursor: pointer;
     transition: background 0.3s, transform 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 .faq-item:hover {
